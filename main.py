@@ -6,25 +6,22 @@ from langchain_openai import OpenAI
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 #from langchain_community.llms import BaseLLM
-from gtts import gTTS
+#from gtts import gTTS
 import os
-import speech_recognition as sr
-import pygame
+#import speech_recognition as sr
+#import pygame
 
 import time
 
 #import simpleaudio as sa
 import threading
-from kivy.app import App
-from kivy.uix.button import Button
-from kivy.uix.label import Label
-from kivy.uix.boxlayout import BoxLayout
+
 import logging
 
 # Configure the root logger directly
 logging.getLogger().setLevel(logging.ERROR)
 
-import cassio
+#import cassio
 from flask import Flask
 
 import os
@@ -40,7 +37,7 @@ app = Flask(__name__)
 
 
 # Initialize recognizer
-recognizer = sr.Recognizer()
+#recognizer = sr.Recognizer()
 
 
 # Use the microphone as the source for input
@@ -52,8 +49,7 @@ def quit():
 
 
 
-
-
+'''
 def record_speech():
     using = False
     with sr.Microphone() as source:
@@ -85,9 +81,9 @@ def record_speech():
                 quit()
     except:
         print("ERROR")
+'''
 
-
-def stop_speech():
+'''def stop_speech():
     sound.stop()
 
 def play_speech(text, stop_after=8):
@@ -128,7 +124,7 @@ def play_speech(text, stop_after=8):
     play_obj = sa.play_buffer(audio_bytes, num_channels=1, bytes_per_sample=audio_segment.sample_width, sample_rate=audio_segment.frame_rate)
 
     # Wait for playback to finish before exiting
-    play_obj.wait_done()
+    play_obj.wait_done()'''
 
 cloud_config= {
   'secure_connect_bundle': 'secure-connect-npc-one.zip'
@@ -213,14 +209,3 @@ def hello_world():
 if __name__ == '__main__':
     app.run(debug=True)
 
-while True:
-
-    #response = llm_chain.predict(human_input=choice)
-
-    #thread = threading.Thread(target=play_speech, args=(response.strip(),))
-
-
-    #   break
-
-    record_speech()
-    stop_threads = True
