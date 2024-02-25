@@ -138,7 +138,8 @@ cloud_config= {
 ASTRA_DB_KEYSPACE = "default_keyspace"
 OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
 TOKEN = os.environ["ASTRA_DB_APPLICATION_TOKEN"]
-USE_BETA = True;
+USE_BETA = True
+app = Flask(__name__)
 
 cluster = Cluster(cloud=cloud_config, auth_provider=PlainTextAuthProvider("token", TOKEN), protocol_version = 4)
 
@@ -207,6 +208,6 @@ def hello_world():
     return response
 
 if __name__ == '__main__':
-    app.run(debug=True)
     port = int(os.environ.get("PORT", 8080))
+    app.run(debug=True, port = port)
 
