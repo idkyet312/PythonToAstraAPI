@@ -206,7 +206,7 @@ choice = "start"
 def hello_world():
     response = llm_chain.predict(human_input="bow")
     response = "The AI: " + response
-    return response
+    return jsonify(response)
 
 @app.route('/data')
 def hello_world2():
