@@ -214,7 +214,7 @@ def hello_world2():
     return response
 
 @app.route('/data2')
-def hello_world2():
+def hello_world3():
     response = OPENAI_API_KEY
     return response
 
