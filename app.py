@@ -22,7 +22,7 @@ import logging
 logging.getLogger().setLevel(logging.ERROR)
 
 #import cassio
-from flask import Flask
+from flask import Flask, jsonify
 
 import os
 from dotenv import load_dotenv
@@ -205,17 +205,16 @@ choice = "start"
 @app.route('/')
 def hello_world():
     response = llm_chain.predict(human_input="bow")
-    response = "The AI: " + response
-    return jsonify(response)
+
+    response_data = {
+        "AI": response
+    }
+
+    return jsonify(response_data)
 
 @app.route('/data')
 def hello_world2():
     response = f"llm_chain.predict(human_input='bow')"
-    return response
-
-@app.route('/data2')
-def hello_world3():
-    response = OPENAI_API_KEY
     return response
 
 if __name__ == '__main__':
