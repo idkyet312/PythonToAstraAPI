@@ -223,13 +223,13 @@ def handle_submit():
     response = llm_chain.predict(human_input=message)
 
     response_data = {
-        "AI": response
+        "Output": response
     }
 
     return jsonify(response_data)
 
     # Respond back with a JSON object
-    response_data_end = {"Input": message, "AI": response_data};
+    response_data_end = {"Input": message, "Output": response_data};
     return jsonify(response_data_end)
 
 if __name__ == '__main__':
