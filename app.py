@@ -213,6 +213,11 @@ def hello_world2():
     response = f"llm_chain.predict(human_input='bow')"
     return response
 
+@app.route('/data2')
+def hello_world2():
+    response = OPENAI_API_KEY
+    return response
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
     app.run(debug=True, port = port)
