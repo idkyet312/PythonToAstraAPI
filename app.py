@@ -22,7 +22,7 @@ import logging
 logging.getLogger().setLevel(logging.ERROR)
 
 #import cassio
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 import os
 from dotenv import load_dotenv
@@ -212,10 +212,25 @@ def hello_world():
 
     return jsonify(response_data)
 
-@app.route('/data')
-def hello_world2():
-    response = f"llm_chain.predict(human_input='bow')"
-    return response
+@app.route('/submit', methods=['POST'])
+def handle_submit():
+    # Parse the JSON data sent in the POST request
+    data = request.get_json()
+
+    # Assuming the JSON contains a key 'message'
+    message = data.get('Input', '')
+
+    response = llm_chain.predict(human_input=message)
+
+    response_data = {
+        "AI": response
+    }
+
+    return jsonify(response_data)
+
+    # Respond back with a JSON object
+    response_data_end = {"Input": message, "AI": response_data};
+    return jsonify(response_data_end)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
