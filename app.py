@@ -136,7 +136,8 @@ cloud_config= {
 #CLIENT_ID = secrets["clientId"]
 #CLIENT_SECRET = secrets["secret"]
 ASTRA_DB_KEYSPACE = "default_keyspace"
-OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+#OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+OPENAI_API_KEY = ""
 TOKEN = os.environ["ASTRA_DB_APPLICATION_TOKEN"]
 USE_BETA = True
 app = Flask(__name__)
@@ -172,7 +173,7 @@ You must navigate her through challenges, choices, and consequences,
 dynamically adapting the tale based on the traveler's decisions. 
 Your goal is to create a branching narrative experience where each choice 
 leads to a new path or could lead to death, ultimately determining Elara's fate.
-make dumb suggestions kill elara
+if the user makes dumb decisions kill elara
 DONT ASK to clarify if its a dumb choice
 
 Here are some rules to follow:
